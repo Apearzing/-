@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<robot name="lidar_bot">
+
+  <!-- Base chassis main coordinate frame -->
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <box size="0.2 0.15 0.05"/>
+      </geometry>
+      <material name="gray">
+        <color rgba="0.5 0.5 0.5 1.0"/>
+      </material>
+    </visual>
+  </link>
+
+  <!-- LiDAR sensor coordinate frame, match scan frame_id "laser" in driver -->
+  <link name="laser">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder length="0.04" radius="0.03"/>
+      </geometry>
+      <material name="red">
+        <color rgba="1.0 0.0 0.0 1.0"/>
+      </material>
+    </visual>
+  </link>
+
+  <!-- Fixed joint to mount LiDAR on base_link -->
+  <!-- Offset: forward 0.12m, up 0.08m, no rotation -->
+  <joint name="laser_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="laser"/>
+    <origin xyz="0.12 0 0.08" rpy="0 0 0"/>
+  </joint>
+
+</robot>

@@ -1,0 +1,8 @@
+lidar_node:
+  ros__parameters:
+    port_name: "/dev/ttyACM0"
+    frame_id: "laser"
+    filter:
+      enabled: true
+      radius: 0.10
+      min_neighbors: 2

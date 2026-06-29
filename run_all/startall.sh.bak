@@ -1,0 +1,9 @@
+#!/bin/bash
+
+gnome-terminal --tab --title="leida" -- bash -c "source /opt/ros/humble/setup.bash;sudo chmod 666 /dev/ttyACM0;cd /home/sunrise/Ros_leida/;source install/setup.bash;ros2 launch lidar_pkg monitor.launch.py"
+
+gnome-terminal --tab --title="Enconder" -- bash -c "source /opt/ros/humble/setup.bash;cd /home/sunrise/car/;python3 Seril_Enconder_noninteractive.py;python3 Seril_Enconder.py;"
+
+gnome-terminal --tab --title="slam" -- bash -c "source /opt/ros/humble/setup.bash;ros2 launch slam_toolbox online_sync_launch.py;"
+
+gnome-terminal --tab --title="car_used" -- bash -c "cd /home/sunrise/car;python3 Car_key.py"
